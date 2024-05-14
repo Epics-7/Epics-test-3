@@ -1,0 +1,58 @@
+XML file
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+&lt;item
+android:title=&quot;option1&quot;
+android:id=&quot;@+id/option_one&quot;/&gt;
+&lt;item
+android:title=&quot;option2&quot;
+android:id=&quot;@+id/option_two&quot;/&gt;
+&lt;item
+android:title=&quot;option3&quot;
+android:id=&quot;@+id/option_three&quot;/&gt;
+&lt;/menu&gt;
+
+Java file
+package com.example.menubar;
+import static com.example.menubar.R.*;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+public class optionmenubar extends AppCompatActivity {}
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(layout.activity_optionmenubar);
+}
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+getMenuInflater().inflate(R.menu.optionmenubar, menu);
+return true;
+}
+@SuppressLint(&quot;NonConstantResourceId&quot;)
+@Override
+public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+int id=item.getItemId();}
+if (id == R.id.option_one) {
+
+Toast.makeText(this, &quot;Option 1 selected&quot;,
+Toast.LENGTH_SHORT).show();
+return true;
+}
+else if (id == R.id.option_two) {
+Toast.makeText(this, &quot;Option 2 selected&quot;,
+Toast.LENGTH_SHORT).show();
+return true;
+}
+else if (id == R.id.option_three) {
+Toast.makeText(this, &quot;Option 3 selected&quot;,
+Toast.LENGTH_SHORT).show();
+return true;
+}
+else {
+return super.onOptionsItemSelected(item);
+}
